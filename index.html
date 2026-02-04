@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ZooShop Tunisia</title>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo"><span>ZooShop</span></div>
+        <div class="nav-links">
+
+            <div id="toutou">   
+                
+            <button class="cart-btn" onclick="toggleCart()"> 🛒 <span id="cart-count">0</span> </button>
+      </div>
+        </div>
+    </nav>
+
+    <div class="slider-container">
+        <div class="slider" id="main-slider">
+            <div class="slide"><img src="https://res.cloudinary.com/dylgc2jrt/image/upload/v1769974217/rmt4f1ceuozslzbpkfjs.png"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dylgc2jrt/image/upload/v1769974267/fqe722wmpntcv6q2gbbm.png"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dylgc2jrt/image/upload/v1769974353/nl6eqzuakif6awscpytn.png"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <main id="product-list" class="products-grid"></main>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <h3>Finaliser la commande</h3>
+            <input type="text" id="user-name" placeholder="Votre Nom">
+            <input type="tel" id="user-phone" placeholder="Téléphone">
+            <button onclick="confirmOrder()" class="btn-add">Confirmer</button>
+            <button onclick="closeOrderModal()" class="btn-cancel" style="background:#ccc; margin-top:5px; border:none; padding:10px; width:100%; border-radius:8px; cursor:pointer;">Annuler</button>
+        </div>
+    </div>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+
+        <div class="cart-header">
+                
+            <h3>Panier</h3>
+
+            <button onclick="toggleCart()">&times;</button></div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <h4>Total: <span id="total-price">0</span> DT</h4>
+            <div id="wa">
+            <button class="btn-checkout" onclick="openOrderModal()">Commander</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-setup.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
